@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { Button } from 'antd';
+import { msToSeconds, msToMinutes, extractMs } from './utils';
 
 export default class Timer extends React.Component {
   constructor(props) {
@@ -43,9 +43,9 @@ export default class Timer extends React.Component {
     return (
       <div>
         <h1>
-          <span>{Math.floor(currentCount / 60000)} : </span>
-          <span>{Math.floor((currentCount / 1000) % 60)} : </span>
-          <span>{currentCount % 1000}</span>
+          <span>{msToMinutes(currentCount)} : </span>
+          <span>{msToSeconds(currentCount)} : </span>
+          <span>{extractMs(currentCount)}</span>
         </h1>
         <div>
           <Button type="primary" onClick={isActive ? this.pauseTimer : this.startTimer}>
