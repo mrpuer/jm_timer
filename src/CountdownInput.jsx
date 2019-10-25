@@ -62,13 +62,12 @@ const CountdownInput = ({ status, secondsCount, setStartCount }) => {
 CountdownInput.propTypes = {
   status: PropTypes.string,
   secondsCount: PropTypes.number,
-  setStartCount: PropTypes.func,
+  setStartCount: PropTypes.func.isRequired,
 };
 
 CountdownInput.defaultProps = {
   status: 'off',
   secondsCount: 0,
-  setStartCount: null,
 };
 
 export default CountdownInput;

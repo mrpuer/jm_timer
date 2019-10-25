@@ -17,16 +17,13 @@ const CountdownButtons = ({ status, startCountdown, stopCountdown, pauseCountdow
 
 CountdownButtons.propTypes = {
   status: PropTypes.string,
-  startCountdown: PropTypes.func,
-  stopCountdown: PropTypes.func,
-  pauseCountdown: PropTypes.func,
+  startCountdown: PropTypes.func.isRequired,
+  stopCountdown: PropTypes.func.isRequired,
+  pauseCountdown: PropTypes.func.isRequired,
 };
 
 CountdownButtons.defaultProps = {
   status: 'off',
-  startCountdown: null,
-  stopCountdown: null,
-  pauseCountdown: null,
 };
 
 export default CountdownButtons;
