@@ -6,12 +6,12 @@ import { extractsSeconds, minutesFromSec } from './utils';
 const CountdownInput = ({ status, secondsCount, setStartCount }) => {
   const onChangeMinutes = value => {
     const secondsValue = extractsSeconds(secondsCount);
-    setStartCount(value * 60 + secondsValue);
+    if (typeof value === 'number' && value <= 60) setStartCount(value * 60 + secondsValue);
   };
 
   const onChangeSeconds = value => {
     const minutesValue = minutesFromSec(secondsCount);
-    setStartCount(minutesValue + value);
+    if (typeof value === 'number' && value <= 60) setStartCount(minutesValue * 60 + value);
   };
 
   const onChangeSlider = value => {
@@ -19,9 +19,9 @@ const CountdownInput = ({ status, secondsCount, setStartCount }) => {
   };
 
   return (
-    <Col span={12}>
-      <Row>
-        <Col span={6}>
+    <>
+      <Row type="flex" justify="center">
+        <Col span={3}>
           <InputNumber
             min={0}
             max={60}
@@ -29,9 +29,9 @@ const CountdownInput = ({ status, secondsCount, setStartCount }) => {
             value={minutesFromSec(secondsCount)}
             disabled={status !== 'off'}
             onChange={onChangeMinutes}
-          />
+          /> Minutes
         </Col>
-        <Col span={6}>
+        <Col span={3}>
           <InputNumber
             min={0}
             max={60}
@@ -39,11 +39,11 @@ const CountdownInput = ({ status, secondsCount, setStartCount }) => {
             value={extractsSeconds(secondsCount)}
             disabled={status !== 'off'}
             onChange={onChangeSeconds}
-          />
+          /> Seconds
         </Col>
       </Row>
-      <Row>
-        <Col span={12}>
+      <Row type="flex" justify="center">
+        <Col span={8}>
           <Slider
             min={0}
             max={3600}
@@ -55,7 +55,7 @@ const CountdownInput = ({ status, secondsCount, setStartCount }) => {
           />
         </Col>
       </Row>
-    </Col>
+    </>
   );
 };
 

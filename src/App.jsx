@@ -1,16 +1,15 @@
 import React from 'react';
 import { Tabs, Layout } from 'antd';
-import 'antd/dist/antd.css';
 
 import Timer from './Timer';
 import Countdown from './Countdown';
+import './App.scss';
 
 const { TabPane } = Tabs;
 const { Content } = Layout;
 
 function App() {
   return (
-    <Layout>
       <Content>
         <h1>Timer & Countdown React App</h1>
         <Tabs defaultActiveKey="1">
@@ -22,7 +21,6 @@ function App() {
           </TabPane>
         </Tabs>
       </Content>
-    </Layout>
   );
 }
 

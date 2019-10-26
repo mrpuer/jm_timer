@@ -1,10 +1,9 @@
 import React from 'react';
-import { Row } from 'antd';
 import { playNotification } from './utils';
 
 import CountdownInput from './CountdownInput';
 import CountdownRes from './CountdownRes';
-import CountdownButtons from './CountdownButtons';
+import Buttons from './Buttons';
 
 export default class Countdown extends React.Component {
   constructor(props) {
@@ -15,6 +14,10 @@ export default class Countdown extends React.Component {
       status: 'off',
       countId: 0,
     };
+  }
+
+  componentWillUnmount() {
+    this.stopCountdown();
   }
 
   setStartCount = newValue => {
@@ -50,25 +53,20 @@ export default class Countdown extends React.Component {
   render() {
     const { secondsCount, fullTimeCount, status } = this.state;
     return (
-      <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-        <Row>
+      <div style={{padding: '30px'}}>
           <CountdownInput
             status={status}
             setStartCount={this.setStartCount}
             secondsCount={secondsCount}
           />
-        </Row>
-        <Row>
           <CountdownRes secondsCount={secondsCount} fullTimeCount={fullTimeCount} />
-        </Row>
-        <Row>
-          <CountdownButtons
+          <Buttons
             status={status}
-            startCountdown={this.startCountdown}
-            stopCountdown={this.stopCountdown}
-            pauseCountdown={this.pauseCountdown}
+            startTimer={this.startCountdown}
+            stopTimer={this.stopCountdown}
+            pauseTimer={this.pauseCountdown}
+            disabled={fullTimeCount === 0}
           />
-        </Row>
       </div>
     );
   }
