@@ -29,7 +29,8 @@ const CountdownInput = ({ status, secondsCount, setStartCount }) => {
             value={minutesFromSec(secondsCount)}
             disabled={status !== 'off'}
             onChange={onChangeMinutes}
-          /> Minutes
+          />{' '}
+          Minutes
         </Col>
         <Col span={3}>
           <InputNumber
@@ -39,7 +40,8 @@ const CountdownInput = ({ status, secondsCount, setStartCount }) => {
             value={extractsSeconds(secondsCount)}
             disabled={status !== 'off'}
             onChange={onChangeSeconds}
-          /> Seconds
+          />{' '}
+          Seconds
         </Col>
       </Row>
       <Row type="flex" justify="center">

@@ -53,20 +53,20 @@ export default class Countdown extends React.Component {
   render() {
     const { secondsCount, fullTimeCount, status } = this.state;
     return (
-      <div style={{padding: '30px'}}>
-          <CountdownInput
-            status={status}
-            setStartCount={this.setStartCount}
-            secondsCount={secondsCount}
-          />
-          <CountdownRes secondsCount={secondsCount} fullTimeCount={fullTimeCount} />
-          <Buttons
-            status={status}
-            startTimer={this.startCountdown}
-            stopTimer={this.stopCountdown}
-            pauseTimer={this.pauseCountdown}
-            disabled={fullTimeCount === 0}
-          />
+      <div style={{ padding: '30px' }}>
+        <CountdownInput
+          status={status}
+          setStartCount={this.setStartCount}
+          secondsCount={secondsCount}
+        />
+        <CountdownRes secondsCount={secondsCount} fullTimeCount={fullTimeCount} />
+        <Buttons
+          status={status}
+          startTimer={this.startCountdown}
+          stopTimer={this.stopCountdown}
+          pauseTimer={this.pauseCountdown}
+          disabled={fullTimeCount === 0}
+        />
       </div>
     );
   }

@@ -10,17 +10,17 @@ const { Content } = Layout;
 
 function App() {
   return (
-      <Content>
-        <h1>Timer & Countdown React App</h1>
-        <Tabs defaultActiveKey="1">
-          <TabPane tab="Timer" key="1">
-            <Timer />
-          </TabPane>
-          <TabPane tab="Countdown" key="2">
-            <Countdown />
-          </TabPane>
-        </Tabs>
-      </Content>
+    <Content>
+      <h1>Timer & Countdown React App</h1>
+      <Tabs defaultActiveKey="1">
+        <TabPane tab="Timer" key="1">
+          <Timer />
+        </TabPane>
+        <TabPane tab="Countdown" key="2">
+          <Countdown />
+        </TabPane>
+      </Tabs>
+    </Content>
   );
 }
 

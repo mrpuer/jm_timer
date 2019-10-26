@@ -1,6 +1,6 @@
 import React from 'react';
 import { msToSeconds, msToMinutes, extractMs } from './utils';
-import Buttons from "./Buttons";
+import Buttons from './Buttons';
 
 export default class Timer extends React.Component {
   constructor(props) {
@@ -9,7 +9,6 @@ export default class Timer extends React.Component {
       currentCount: 0,
       counted: 0,
       intervalId: null,
-      status: 'off',
     };
   }
 
@@ -51,7 +50,12 @@ export default class Timer extends React.Component {
           <span>{msToSeconds(currentCount)} : </span>
           <span>{extractMs(currentCount)}</span>
         </h2>
-        <Buttons status={isActive} pauseTimer={this.pauseTimer} startTimer={this.startTimer} stopTimer={this.stopTimer} />
+        <Buttons
+          status={isActive}
+          pauseTimer={this.pauseTimer}
+          startTimer={this.startTimer}
+          stopTimer={this.stopTimer}
+        />
       </div>
     );
   }
